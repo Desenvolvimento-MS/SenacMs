@@ -60,6 +60,7 @@ COMANDO PARA RODAr
 
 Composer I
 Npm I
+Npm run dev
 PHP artisan serve
 
 

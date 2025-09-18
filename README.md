@@ -28,15 +28,32 @@ Módulo 1° - Modelagem e Banco de dados
 Este módulo devo criar o banco de dados no qual vai alimentar meu sistema, trazendo uma arquitetura sólida e com possibilidades de escalas no futuro. Criação de tabelas como, tabelas de Eventos, Setores, Ingressos dentre outras;
 
 
-Tecnologias utilizadas 
 
-⦁	PHPMYADMIN
-⦁	WORKBENCH
 
 Entregas 
 
 ⦁	Script do banco de dados;
 ⦁	DER do banco de dados;
+
+
+
+
+
+Módulo 2° - Prototipção e Design de Interface 
+
+Neste módulo devo construir o protótipo do meu sistema baseado nas cores do manual da marca utilizando de UI e UX para criar interfaces claras e usuais
+
+
+Tecnologias utilizadas 
+
+⦁	FIGMA
+
+Entregas 
+
+⦁	Link do fluxo do figma
+
+Link do Figma = https://www.figma.com/proto/JQF2pfv9iQ6WtOe4WRTyyD/Competi%C3%A7%C3%B5es-MS?node-id=6-856&p=f&t=IjYUK4CLhVCIhgKc-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=6%3A856
+
 
 
 

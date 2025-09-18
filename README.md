@@ -56,7 +56,7 @@ Link do Figma = https://www.figma.com/proto/JQF2pfv9iQ6WtOe4WRTyyD/Competi%C3%A7
 
 
 
-COMANDO PARA RODAr
+COMANDOS PARA RODAR
 
 Composer I
 Npm I

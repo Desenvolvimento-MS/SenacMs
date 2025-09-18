@@ -21,6 +21,7 @@ PHPMYADMIN - Ultizado para a criação do banco de dados;
 
 WORKBENCH - Ultizado para a criação do der do  banco de dados trazendo relacionamentos e cores do sistema;
 
+TAILWIND - Ultilizando para criar a interface de acordo com o prótotipo
 
 Módulo 1° - Modelagem e Banco de dados
 

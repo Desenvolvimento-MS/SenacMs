@@ -56,12 +56,11 @@ Link do Figma = https://www.figma.com/proto/JQF2pfv9iQ6WtOe4WRTyyD/Competi%C3%A7
 
 
 
-COMANDO PARA RODAS
-
-
+COMANDO PARA RODAr
 
 Composer I
 Npm I
+PHP artisan serve
 
 
 Modulo 3° CRUD Usuários

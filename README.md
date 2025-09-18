@@ -50,12 +50,33 @@ Tecnologias utilizadas
 
 Entregas 
 
-⦁	Link do fluxo do figma;
+⦁	Link do fluxo do figma
 
 Link do Figma = https://www.figma.com/proto/JQF2pfv9iQ6WtOe4WRTyyD/Competi%C3%A7%C3%B5es-MS?node-id=6-856&p=f&t=IjYUK4CLhVCIhgKc-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=6%3A856
 
 
 
+COMANDO PARA RODAr
+
+Composer I
+Npm I
+PHP artisan serve
+
+
+Modulo 3° CRUD Usuários
+
+Neste módulo realizei o CRUD de usuário com CREATE,DELETE,UPDATE E REDME.
+
+
+Tecnologias utilizadas
+
+⦁	LARAVEL
+
+⦁	LIVEWIRE
+
+Entregas
+
+* Commit na main-teste e merge na main;
 
 
 

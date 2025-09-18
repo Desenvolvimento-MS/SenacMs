@@ -1,0 +1,62 @@
+
+
+
+.Textazul{
+    color: #1331a1;
+
+}
+
+.Textrosa{
+    color: #f31366;
+  
+}
+
+.Textlaranja{
+    color: #f44528;
+ 
+}
+
+.Textamarelo{
+    color: #f8b62f;
+ 
+}
+.Textverde{
+    color: #a2ca02;
+  
+}
+
+
+.azul{
+
+    background-color: #1331a1;
+}
+
+.rosa{
+  
+    background-color: #f31366;
+}
+
+.laranja{
+
+    background-color: #f44528;
+}
+
+.amarelo{
+
+    background-color: #f8b62f;
+}
+.verde{
+
+    background-color: #a2ca02;
+}
+
+
+
+.BtnHover:hover{
+
+    background-color: white;
+     border: 1px solid rgb(184, 184, 184);
+     cursor: pointer;
+     color: gray;
+     transition: all 0.2s ease-in-out;
+}

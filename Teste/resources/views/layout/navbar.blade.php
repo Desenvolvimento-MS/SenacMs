@@ -1,9 +1,9 @@
 
 
 
-<div class="p-5">
+<div class="p-2">
 
-    <img  class="absolute hidden md:flex  top-3 left-0" src="{{asset('image/Frame 80.png')}}" alt="">
+    <img  class="absolute hidden md:flex  top-5 left-3" src="{{asset('image/Frame 80.png')}}" alt="">
 
     
     <header class=" hidden md:flex relative items-center rounded-2xl  bg-white justify-between w-full">
@@ -23,7 +23,7 @@
                 <a href=""  class="flex gap-2 BtnHover text-lg font-medium p-1 rounded-2xl text-gray-600 items-center"><i class="fa-solid fa-qrcode"></i>Validador</a>
             </li>
             <li>
-                <a href=""  class="flex gap-2 BtnHover text-lg font-medium p-1 rounded-2xl text-gray-600 items-center"><i class="fa-solid fa-receipt"></i>Venda</a>
+                <a href="{{route('saller')}}"  class="flex gap-2 BtnHover text-lg font-medium p-1 rounded-2xl text-gray-600 items-center"><i class="fa-solid fa-receipt"></i>Venda</a>
             </li>
             <li>
                 <a href=""  class="flex gap-2 BtnHover text-lg font-medium p-1 rounded-2xl text-gray-600 items-center"><i class="fa-solid fa-grip"></i>Dashboard</a>
@@ -55,7 +55,7 @@
             <a href="" class="flex flex-col gap-1 justify-center items-center"><i class="fa-solid fa-qrcode"></i>Validador</a>
         </li>
         <li class="">
-            <a href="" class="flex flex-col gap-1 justify-center items-center"><i class="fa-solid fa-receipt"></i>Venda</a>
+            <a href="{{route('saller')}}" class="flex flex-col gap-1 justify-center items-center"><i class="fa-solid fa-receipt"></i>Venda</a>
         </li>
         <li class="">
             <a href="" class="flex flex-col gap-1 justify-center items-center"><i class="fa-solid fa-grip"></i>Dashboard</a>

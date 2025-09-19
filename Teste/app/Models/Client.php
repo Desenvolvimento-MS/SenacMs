@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Sale extends Model
+class Client extends Model
 {
 
- protected $fillable = [
-        'sale_time',
-        'user_id',
+   protected $fillable = [
+        'name',
+        'lastname',
+        'email',
+        'cpf',
     ];
 
     public $timestamps = false;
 
-    public function user() : BelongsTo{
-        return $this->belongsTo(User::class);
-    }
+
     public function ticket() : BelongsTo{
         return $this->belongsTo(Ticket::class);
     }

@@ -14,7 +14,7 @@
                 <a href="{{route('events')}}" class="flex gap-2 BtnHover text-lg font-medium p-1 rounded-2xl text-gray-600 items-center"><i class="fa-solid fa-calendar"></i>Eventos</a>
             </li>
             <li>
-                <a href=""  class="flex gap-2 BtnHover text-lg font-medium p-1 rounded-2xl text-gray-600 items-center"><i class="fa-solid fa-ticket"></i>Ingressos</a>
+                <a href="{{route('ticket')}}"  class="flex gap-2 BtnHover text-lg font-medium p-1 rounded-2xl text-gray-600 items-center"><i class="fa-solid fa-ticket"></i>Ingressos</a>
             </li>
             <li>
                 <a href="{{route('users')}}"  class="flex gap-2 BtnHover text-lg font-medium p-1 rounded-2xl text-gray-600 items-center"><i class="fa-solid fa-users"></i>Usuários</a>
@@ -46,7 +46,7 @@
             <a href="{{route('events')}}" class="flex flex-col gap-1 justify-center items-center"><i class="fa-solid fa-calendar"></i>Eventos</a>
         </li>
         <li class="">
-            <a href="" class="flex flex-col gap-1 justify-center items-center"><i class="fa-solid fa-ticket"></i>Ingressos</a>
+            <a href="{{route('ticket')}}" class="flex flex-col gap-1 justify-center items-center"><i class="fa-solid fa-ticket"></i>Ingressos</a>
         </li>
         <li class="">
             <a href="{{route('users')}}" class="flex flex-col gap-1 justify-center items-center"><i class="fa-solid fa-users"></i>Usuários</a>

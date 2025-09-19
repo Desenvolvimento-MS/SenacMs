@@ -24,7 +24,6 @@ class GerarTicket implements ShouldQueue
         
 
         $ticket = $ticket;
-
         $sector = Sector::find($ticket->sector_id);
         $event = Event::find($sector->event_id);
         $client = Client::find($ticket->client_id);
@@ -42,7 +41,7 @@ class GerarTicket implements ShouldQueue
             mkdir(storage_path('app/public/tickets'), 0755, true);
         }
 
-        $ticketName = "tickets/Ingresso{$ticket->id}.png";
+        $ticketName = "tickets/Ingresso{$ticket->id}.pdf";
 
         $path = storage_path("app/public/{$ticketName}");
 

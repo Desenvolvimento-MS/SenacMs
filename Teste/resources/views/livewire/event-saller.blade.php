@@ -24,7 +24,7 @@
     <div class="flex w-full justify-center gap-10">
 
         @foreach ($events as $item)
-            <div class="flex w-100 flex-col  rounded-2xl p-5 bg-white shadow-xl gap-5">
+            <div class="flex w-100 flex-col z-[99] rounded-2xl p-5 bg-white shadow-xl gap-5">
 
                 <img class="flex w-full rounded-2xl h-30" src="{{Storage::url($item->img_event)}}" alt="">
 

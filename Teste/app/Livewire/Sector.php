@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Livewire\Forms\FormSector;
 use App\Models\Event;
 use App\Models\Sector as ModelsSector;
+use App\Models\Ticket;
 use App\OpenAndClose;
 use Livewire\Component;
 
@@ -124,11 +125,16 @@ class Sector extends Component
 
     public function delete($id){
 
-          $model = ModelsSector::find($id);
-            $model->delete();
+            if(Ticket::where('sector_id', $id)->count()>= 1){
+                  session()->flash('Error', 'Não é possivel deletar esse setor pois ele já possui uma venda');
+                return false;
+            }
+
+        $model = ModelsSector::find($id);
+        $model->delete();
         
-            session()->flash('Sucess', 'Deletado com sucesso');
-              $this->redirectRoute('event.saller',$this->eventItem->id);
+        session()->flash('Sucess', 'Deletado com sucesso');
+            $this->redirectRoute('event.saller',$this->eventItem->id);
     }
 
 

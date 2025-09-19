@@ -75,7 +75,7 @@ class Event extends Component
             Sector::create([
                 'name' => "Setor{$value}",
                 'capacity_ticket' => 0,
-                'ticket_reserved' =>0,
+                'ticket_reserved' => 0,
                 'type_sector' => $value,
                 'event_id' => $event->id,
             ]);
@@ -99,13 +99,13 @@ class Event extends Component
         $model = ModelsEvent::find($id);
         
 
-        // $setors = $this->eventItem->sector()->pluck('id');
+        $setors = $model->sector()->pluck('id');
 
 
-        // if(Ticket::whereIn('sector_id', $setors)->count() >= 1){
-        //      session()->flash('Error', 'Não é possivel deletar esse evento pois ele já possui uma venda');
-        //     return false;
-        // }
+        if(Ticket::whereIn('sector_id', $setors)->count() >= 1){
+             session()->flash('Error', 'Não é possivel deletar esse evento pois ele já possui uma venda');
+            return false;
+        }
 
         $model->delete();
         

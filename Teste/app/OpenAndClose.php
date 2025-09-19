@@ -19,7 +19,10 @@ trait OpenAndClose
         $this->reset([
             'showModal',
             'updateFom',
+            'ticketStatsu',
             'search',
+            'showCliente',
+            'RegisterCLietShow',
         ]);
     }
 

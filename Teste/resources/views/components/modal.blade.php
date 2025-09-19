@@ -15,7 +15,7 @@
             @endif
           
             
-            @if(!$RegisterCLiete)
+            @if($RegisterCLiete)
             <button wire:click="closeModalRegister" class="flex rounded-full p-2 w-10 h-10 justify-center items-center  BtnHover bg-gray-100 text-gray-600"><i class="fa-solid fa-xmark"></i></button>
 
             @else

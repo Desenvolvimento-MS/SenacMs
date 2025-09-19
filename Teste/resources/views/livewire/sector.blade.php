@@ -77,7 +77,7 @@
                                 </div>
                                 <div class=" flex-col w-full flex gap-2">
                                     <span class="flex text-xl text-gray-600">Capacidade do setor: {{$item->capacity_ticket}}</span>
-                                    <span class="flex text-xl font-medium text-[#f44528]">Qut. de ingressos reservados: 50{{$item->ticket_reserved}}</span>
+                                    <span class="flex text-xl font-medium text-[#f44528]">Qut. de ingressos reservados: {{$item->ticket_reserved}}</span>
                                 </div>
 
                                 @php
@@ -140,7 +140,7 @@
                                 </div>
                                 <div class=" flex-col w-full flex gap-2">
                                     <span class="flex text-xl text-gray-600">Capacidade do setor: {{$item->capacity_ticket}}</span>
-                                    <span class="flex text-xl font-medium text-[#1331a1]">Qut. de ingressos reservados: 50{{$item->ticket_reserved}}</span>
+                                    <span class="flex text-xl font-medium text-[#1331a1]">Qut. de ingressos reservados: {{$item->ticket_reserved}}</span>
                                 </div>
 
                                 @php
@@ -199,7 +199,7 @@
                                 </div>
                                 <div class=" flex-col w-full flex gap-2">
                                     <span class="flex text-xl text-gray-600">Capacidade do setor: {{$item->capacity_ticket}}</span>
-                                    <span class="flex text-xl font-medium text-[#a2ca02]">Qut. de ingressos reservados: 50{{$item->ticket_reserved}}</span>
+                                    <span class="flex text-xl font-medium text-[#a2ca02]">Qut. de ingressos reservados: {{$item->ticket_reserved}}</span>
                                 </div>
 
                                 @php

@@ -57,20 +57,11 @@ Link do Figma = https://www.figma.com/proto/JQF2pfv9iQ6WtOe4WRTyyD/Competi%C3%A7
 
 Comandos para rodas ao iniciar o projeto
 
-<<<<<<< HEAD
 nomposer I
 npm I
 php artisan serve
 php artisan storage:link
 
-=======
-COMANDOS PARA RODAR
-
-Composer I
-Npm I
-Npm run dev
-PHP artisan serve
->>>>>>> a38b8e010d6946eff7742107c42d67487153b0f7
 
 
 Modulo 3° CRUD Usuários

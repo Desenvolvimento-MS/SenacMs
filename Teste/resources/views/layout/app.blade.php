@@ -17,7 +17,7 @@
 
     @include('layout.navbar')
 
-    <main class="flex p-10 w-full mt-25 flex-col gap-2">
+    <main class="flex p-10 mb-10  w-full md:mt-25 flex-col gap-2">
 
         {{$slot}}
 

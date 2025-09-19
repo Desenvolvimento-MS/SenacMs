@@ -9,13 +9,13 @@
             <div class="flex w-10 h-10 rounded-2xl shadow-xl bg-white Textazul text-lg justify-center items-center">
                     <i class="fa-solid fa-users"></i>
             </div>
-            <span class="text-xl text-gray-600 font-medium">Usuários</span>
+            <span class="text-xl text-gray-600 font-medium">Eventos</span>
 
         </div>
 
         <button wire:click='typeForm' class="flex p-2 rounded-2xl justify-center items-center text-white BtnHover azul gap-2 w-1/2 md:w-1/6 font-medium  ">
             <i class="fa-solid fa-plus"></i>
-            Cadastrar Usuário
+            Cadastrar Eventos
         </button>
 
     </div>
@@ -23,23 +23,8 @@
 
     <div class="flex w-full  z-[50] gap-10 mt-15 justify-center items-center flex-wrap">
         <x-card
-            NameCard='Total de Usuários'
-            :ValudCard=$totalUser
-        
-        />
-        <x-card
-            NameCard='Total de Administradores'
-            :ValudCard=$totalAdm
-        
-        />
-        <x-card
-            NameCard='Total de Vendedores'
-            :ValudCard=$totalSaller
-        
-        />
-        <x-card
-            NameCard='Total de Validadores'
-            :ValudCard=$totalCheck
+            NameCard='Total de Eventos'
+            :ValudCard=$TotalEvent
         
         />
     </div>
@@ -56,7 +41,7 @@
         <div class="flex w-10 h-10 bg-blue-100 text-blue-800 rounded-full justify-center items-center ">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-        <input wire:model.live="search" placeholder="Pesquisar Usuário"  type="text" class="flex w-full md:w-1/4 border-1 border-gray-300 rounded-2xl p-2 ">
+        <input wire:model.live="search" placeholder="Pesquisar Evento"  type="text" class="flex w-full md:w-1/4 border-1 border-gray-300 rounded-2xl p-2 ">
 
     </div>
 
@@ -68,13 +53,19 @@
                         #
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Nome Usuário
+                        Nome do Evento
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        E-mail
+                        Capacidade do Evento
                     </th>
                     <th scope="col" class="px-6 py-3">
-                    Perfil
+                    Data do Evento
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                    Horário do Evento
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                    Ver Setores
                     </th>
                     <th scope="col" class="px-6 py-3">
                     Ações
@@ -82,19 +73,30 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $item)
+                @foreach ($events as $item)
                 <tr class="bg-white text-center border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{$item->id}}
                     </th>
                     <td class="px-6 py-4">
-                        {{$item->name}}     {{$item->lastname}}
+                        {{$item->name}}  
                     </td>
                     <td class="px-6 py-4">
-                        {{$item->email}}
+                        {{$item->capacity_ticket}}
                     </td>
                     <td class="px-6 py-4">
-                        {{$item->profile}}
+                        {{\Carbon\Carbon::parse($item->date_event)->format('d/m/Y')  }}
+                    </td>
+                    <td class="px-6 py-4">
+                         {{\Carbon\Carbon::parse($item->time_event)->format('H:i')  }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <div class="flex justify-center items-center">
+                            <a class="BtnHover p-1 rounded-2xl " href="{{route('event.saller', $item->id)}}">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+
+                        </div>
                     </td>
                     <td class="px-6 py-4">
                        <div class="flex justify-center items-center gap-3">
@@ -117,75 +119,78 @@
 
 
     <x-modal
-    NameModal="{{$updateFom ? 'Editar' : 'Cadastrar'}} Usuário"
+    NameModal="{{$updateFom ? 'Editar' : 'Cadastrar'}} Evento"
     :StatusMOdal=$showModal
     
     >
 
-    <div class="flex w-full gap-5 md:flex-row flex-col  justify-between">
+    <div class="flex w-full gap-5 md:flex-row flex-col justify-between">
         <x-input
         label='Nome'
         model="form.name"
         type='text'
-        placeholder='Rafael'
+        placeholder='Senac Grande Show'
         
         />
         <x-input
-        label='Sobrenome'
-        model="form.lastname"
-        type='text'
-        placeholder='Rodrigues'
+        label='Capacidade do evento'
+        model="form.capacity_ticket"
+        type='number'
+        placeholder='5000'
         
         />
 
     </div>
     <div class="flex w-full gap-5 md:flex-row flex-col  justify-between">
         <x-input
-        label='CPF'
-        model="form.cpf"
-        type='text'
-        xmask='999.999.999-99'
-        placeholder='999.999.999-99'
+        label='Data do Evento'
+        model="form.date_event"
+        type='date'
+        placeholder='10/10/2025'
         
         />
         <x-input
-        label='E-mail'
-        model="form.email"
-        type='email'
-        placeholder='rafa@gmail.com'
+        label='Horário do Evento'
+        model="form.time_event"
+        type='time'
+        placeholder='08:30'
         
         />
 
     </div>
     
     <div class="flex w-full gap-5 md:flex-row flex-col  justify-between">
-        <div class="flex w-full flex-col gap-2">
-            <label for="" class="flex text-lg text-gray-600 ">Perfil</label>
-            <select wire:model='form.profile' name="" id="" class="flex w-full border-1 border-gray-300 rounded-2xl p-3 ">
-                <option selected value="Adm">Administrador</option>
-                <option value="Saller">Vendedor</option>
-                <option value="Check">Validador</option>
-            </select>
-             @error('form.profile')
-                <div wire:poll.3s class="flex text-red-700 text-lg">
-                    {{$message}}
-                </div>
-                    
-            @enderror
-            @if(session('ErrorForm'))
-            <div class="flex text-red-700 text-lg">
-                {{session('ErrorForm')}}
-            </div>
-            @endif
-
-        </div>
+       
         <x-input
-        label='Senha'
-        model="form.password"
-        type='password'
-        placeholder='********'
+        label='Endereço do evento'
+        model="form.endereco_event"
+        type='text'
+        placeholder='Rua Lima,45, Centro, MS'
         
         />
+
+          <x-input
+        label='Limite de ingressos por pessoa'
+        model="form.limit_ticket"
+        type='number'
+        placeholder='5'
+        
+        />
+       
+
+    </div>
+    <div class="flex w-full  gap-5 md:flex-row flex-col  justify-center ">
+       
+        <div class="flex w-1/2">
+             <x-input
+            label='Imagem do evento'
+            model="form.img_event"
+            type='file'
+            placeholder='Adicione uma imagem'
+            
+            />
+        </div>
+       
 
     </div>
 

@@ -8,10 +8,10 @@
     <label for="" class="flex text-lg text-gray-600 ">{{$label}}</label>
     <input wire:model="{{$model}}" placeholder="{{$placeholder}}" x-mask='{{$xmask}}' type="{{$type}}" class="flex w-full border-1 border-gray-300 rounded-2xl p-3 ">
 
+    {{$slot}}
+
     @if(session('ErrorForm'))
-
-
-     <div class="flex text-red-700 text-lg">
+     <div wire:poll.3s class="flex text-red-700 text-lg">
         {{session('ErrorForm')}}
     </div>
     @endif

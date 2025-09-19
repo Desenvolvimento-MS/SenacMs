@@ -65,7 +65,12 @@ class FormUser extends Form
         }
 
         $this->model->update([
-            $this->all()
+           'name'=> $this->name,
+           'lastname'=> $this->lastname,
+           'email'=> $this->email,
+           'profile'=> $this->profile,
+           'cpf'=> $this->cpf,
+           'password'=> $this->password,
         ]);
 
     }

@@ -1,4 +1,4 @@
-@props(['NameModal', 'StatusMOdal'])
+@props(['NameModal', 'StatusMOdal', 'RegisterCLiete' => null])
 
 
 @if($StatusMOdal)
@@ -8,9 +8,20 @@
 
         <div class="flex w-full justify-between">
             <span class="flex text-2xl text-gray-600">{{$NameModal}}</span>
-            
 
-            <button wire:click="closeModal" class="flex rounded-full p-2 BtnHover rod bg-gray-100 text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+            @if ($RegisterCLiete)
+              <button wire:click="FuncshowModalCLient" class="flex p-2 rounded-2xl justify-center items-center text-lg font-medium BtnHover bg-[#1331a1]/20  text-[#1331a1]">Cadastrar Cliente</button>
+                
+            @endif
+          
+            
+            @if(!$RegisterCLiete)
+            <button wire:click="closeModalRegister" class="flex rounded-full p-2 w-10 h-10 justify-center items-center  BtnHover bg-gray-100 text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+
+            @else
+             <button wire:click="closeModal" class="flex rounded-full p-2 BtnHover w-10 h-10 justify-center items-center  bg-gray-100 text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+
+            @endif
 
         </div>
 

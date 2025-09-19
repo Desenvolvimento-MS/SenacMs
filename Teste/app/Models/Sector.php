@@ -26,5 +26,9 @@ protected $fillable = [
         return $this->belongsTo(Event::class);
    }
 
+      public function ticket() : BelongsTo{
+        return $this->belongsTo(Ticket::class);
+    }
+
     
 }

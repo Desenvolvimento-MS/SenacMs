@@ -80,9 +80,9 @@ Entregas
 * Commit na main-teste e merge na main;
 
 
-Modulo 4° CRUD de Eventos e Setores
+Modulo 4° CRUD de Eventos e Setores e Venda de Ingressos
 
-Neste módulo realizei o CRUD de Eventos  CREATE,DELETE,UPDATE E REDME, e o CURD o de Setores CREATE,DELETE,UPDATE E REDME, como também a filtragem de eventos baseados no protótipo do  figma.
+Neste módulo realizei o CRUD de Eventos  CREATE,DELETE,UPDATE E REDME, e o CURD o de Setores CREATE,DELETE,UPDATE E REDME, como também a filtragem de eventos baseados no protótipo do  figma. Também realizou a reserva dos ingressos;
 
 
 Tecnologias utilizadas
@@ -90,6 +90,7 @@ Tecnologias utilizadas
 ⦁	LARAVEL
 ⦁	LIVEWIRE
 ⦁	TAILWIND
+⦁	Browsershot
 
 Entregas
 

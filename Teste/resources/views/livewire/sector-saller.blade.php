@@ -68,14 +68,24 @@
                                 </div>
                                 <div class=" flex-col w-full flex gap-2">
                                     <span class="flex text-xl text-gray-600">Capacidade do setor: {{$item->capacity_ticket}}</span>
-                                    <span class="flex text-xl font-medium text-[#f44528]">Qut. de ingressos reservados: 50{{$item->ticket_reserved}}</span>
+                                    <span class="flex text-xl font-medium text-[#f44528]">Qut. de ingressos reservados: {{$item->ticket_reserved}}</span>
                                 </div>
 
                                 @php
 
+                                
 
-                                if($item->capacity_ticket != 0 or $item->capacity_ticket != 0 ){
-                                    $calc = ($item->ticket_reserved* 100) / $item->capacity_ticket;
+
+                                if($item->capacity_ticket == $item->ticket_reserved ){
+
+                                    $block = true;
+                                    $critc = false;
+
+                                }else{
+
+                                    $block = false;
+
+                                     $calc = ($item->ticket_reserved* 100) / $item->capacity_ticket;
 
                                         if($calc >= 90){
                                             $critc = true;
@@ -84,23 +94,12 @@
                                         else{
                                             $critc = false;
                                         }
-
-                                         if($item->capacity_ticket == $item->ticket_reserved){
-
-                                    $block = true;
-                                }else{
-                                    $block = false;
-                                }
-
-                                    
-                                }else{
-                                $critc = false;
+                                        
                                 }
 
 
-                               
 
-
+    
                                 
                                 @endphp
 
@@ -149,13 +148,20 @@
                                 </div>
                                 <div class=" flex-col w-full flex gap-2">
                                     <span class="flex text-xl text-gray-600">Capacidade do setor: {{$item->capacity_ticket}}</span>
-                                    <span class="flex text-xl font-medium text-[#1331a1]">Qut. de ingressos reservados: 50{{$item->ticket_reserved}}</span>
+                                    <span class="flex text-xl font-medium text-[#1331a1]">Qut. de ingressos reservados: {{$item->ticket_reserved}}</span>
                                 </div>
 
                                 @php
-                                    
-                                      if($item->capacity_ticket != 0 or $item->capacity_ticket != 0 ){
-                                    $calc = ($item->ticket_reserved* 100) / $item->capacity_ticket;
+                                     if($item->capacity_ticket == $item->ticket_reserved ){
+
+                                    $block = true;
+                                    $critc = false;
+
+                                }else{
+
+                                    $block = false;
+
+                                     $calc = ($item->ticket_reserved* 100) / $item->capacity_ticket;
 
                                         if($calc >= 90){
                                             $critc = true;
@@ -164,17 +170,7 @@
                                         else{
                                             $critc = false;
                                         }
-
-                                         if($item->capacity_ticket == $item->ticket_reserved){
-
-                                    $block = true;
-                                }else{
-                                    $block = false;
-                                }
-
-                                    
-                                }else{
-                                $critc = false;
+                                        
                                 }
 
                                 @endphp
@@ -228,8 +224,16 @@
 
                                 @php
                                     
-                                    if($item->capacity_ticket != 0 or $item->capacity_ticket != 0 ){
-                                    $calc = ($item->ticket_reserved* 100) / $item->capacity_ticket;
+                                     if($item->capacity_ticket == $item->ticket_reserved ){
+
+                                    $block = true;
+                                    $critc = false;
+
+                                }else{
+
+                                    $block = false;
+
+                                     $calc = ($item->ticket_reserved* 100) / $item->capacity_ticket;
 
                                         if($calc >= 90){
                                             $critc = true;
@@ -238,17 +242,7 @@
                                         else{
                                             $critc = false;
                                         }
-
-                                         if($item->capacity_ticket == $item->ticket_reserved){
-
-                                    $block = true;
-                                }else{
-                                    $block = false;
-                                }
-
-                                    
-                                }else{
-                                $critc = false;
+                                        
                                 }
 
                                 @endphp
@@ -300,7 +294,7 @@
 
     NameModal="Reservar Ingressos - {{ $sectorItem ? $sectorItem->name : ''}}"
     :StatusMOdal=$showModal
-        :RegisterCLiete=$RegisterCLietShow
+   
 
     >
 
@@ -375,6 +369,7 @@
 <x-modal
     :StatusMOdal=$showModalCLient
     NameModal='Cadastrar Cliente'
+    :RegisterCLiete=$RegisterCLietShow
 > 
 
  <div class="flex w-full gap-5 md:flex-row flex-col  justify-between">
@@ -427,9 +422,37 @@
 
 
 
+
+   <x-modal
+
+    NameModal="Reservar Ingressos - {{ $sectorItem ? $sectorItem->name : ''}}"
+    :StatusMOdal=$modalShowTicket
+    >
+
+
+
+    <div class="flex w-full justify-between">
+
+        <div class="flex gap-2 items-center text-lg">
+            <div class="flex w-10 h-10 rounded-full justify-center items-center text-white bg-[#f44528]">
+                <i class="fa-solid fa-ticket"></i>
+            </div>
+            <span class="flex text-lg font-medium text-gray-600"> 1° Ingresso</span>
+        </div>
+        <div class="flex gap-3 items-center">
+            <button class="flex p-2 text-lg rounded-2xl bg-amber-100 text-amber-700 items-center  " href=""><i class="fa-solid fa-eye"></i>Ver ingresso</button>
+            <a class="flex p-2 text-lg rounded-2xl bg-[#1331a1] text-white items-center  " href=""><i class="fa-solid fa-download"></i>Donwload</a>
+        </div>
+
+
+
+    </div>
+
+   </x-modal>
+
 @if ($modalGerarTicket)
 
-<div wire:poll="verificarTicketGerado" class=" flex inset-0 z-[99] fixed bg-black/20 justify-center items-center">
+<div wire:poll.5s='fnTotal' class=" flex inset-0 z-[99] fixed bg-black/20 justify-center items-center">
 
 
      <div class="flex w-100 md:w-140  bg-white p-10 rounded-2xl flex-col gap-5">
@@ -451,6 +474,8 @@
     
 @endif
 
+
+<x-alert/>
 
 </div>
 

@@ -5,6 +5,7 @@ use App\Livewire\EventSaller;
 use App\Livewire\Sector;
 use App\Livewire\SectorSaller;
 use App\Livewire\Teste;
+use App\Livewire\Ticket;
 use App\Livewire\User;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,8 @@ Route::get('/reserva/{id}', SectorSaller::class)->name('saller.sector');
 
 
 Route::get('/eventos/setor/{id}', Sector::class)->name('event.saller');
+
+Route::get('/ingressos', Ticket::class)->name('ticket');
 
 
 

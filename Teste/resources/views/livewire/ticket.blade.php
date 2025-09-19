@@ -1,3 +1,129 @@
 <div>
-    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+    
+    <div class="flex w-full z-[50] justify-between">
+
+        <div class=" flex  gap-2 flex-1  items-center ">
+
+            <div class="flex w-10 h-10 rounded-2xl shadow-xl bg-white Textazul text-lg justify-center items-center">
+                    <i class="fa-solid fa-users"></i>
+            </div>
+            <span class="text-xl text-gray-600 font-medium">Ingressos {{$eventItem ? '-' . $eventItem->name : ''}} </span> 
+        </div>
+        <div class="flex w-1/2 items-end flex-col gap-2">
+                <label for="" class="flex w-1/4  text-lg text-gray-600 ">Perfil</label>
+                <select wire:change="selectEvent" wire:model='idEvent' name="" id="" class="flex w-1/4 border-1 border-gray-300 rounded-2xl p-3 ">
+                    <option >Selecione uma opção</option>
+                    @foreach ($events as $item)
+                        <option value="{{$item->id}}">{{$item->name}}</option>
+                    @endforeach
+                </select>
+        </div>
+    </div>
+
+    
+
+    <div class="flex w-full  z-[50] gap-10 mt-15 justify-center items-center flex-wrap">
+        <x-card
+            NameCard='Capacidade do Evento'
+            :ValudCard=$totalEvent
+        
+        />
+        <x-card
+            NameCard='Total de Ingressos Validados'
+            :ValudCard=$totalValidado
+        
+        />
+        <x-card
+            NameCard='Total de Ingressos Emitidos'
+            :ValudCard=$totalNãoValidado
+        
+        />
+    </div>
+
+
+
+    <div class="flex w-full bg-white z-[50] mt-15 gap-5 flex-col rounded-2xl shadow-xl p-5">
+
+        
+    <div class="flex w-full gap-2 bg-white z-[50] ">
+
+        <div class="flex w-10 h-10 bg-blue-100 text-blue-800 rounded-full justify-center items-center ">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <input wire:model.live="search" placeholder="Pesquisar Cliente"  type="text" class="flex w-full md:w-1/4 border-1 border-gray-300 rounded-2xl p-2 ">
+
+    </div>
+
+    
+
+
+    
+    <div class="relative z-[50] overflow-x-auto h-60">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr class="text-center">
+                    <th scope="col" class="px-6 py-3">
+                        #
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Nome Cliente
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Tipo de Ingresso
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Status de Ingresso
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Data / Hora Validação
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                    Ações
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($tickets as $item)
+                <tr class="bg-white text-center border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{$item->id}}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{$item->client->name}}     {{$item->client->lastname}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{$item->sector->type_sector}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{$item->status_ticket}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{$item->time_validation}}
+                    </td>
+                    <td class="px-6 py-4">
+                       <div class="flex justify-center items-center gap-3">
+                        <button class="flex w-8 h-8 justify-center BtnHover items-center rounded-full bg-amber-100 text-amber-600 " wire:click="view({{$item->id}})"><i class="fa-solid fa-eye"></i></button>
+                        <button class="flex w-8 h-8 justify-center BtnHover items-center rounded-full  bg-[#1331a1]/20 text-[#1331a1] " wire:click="delete({{$item->id}})"><i class="fa-solid fa-download"></i></button>
+                        <button class="flex w-8 h-8 justify-center BtnHover items-center rounded-full bg-rose-100 text-rose-600 " wire:click="delete({{$item->id}})"><i class="fa-solid fa-trash"></i></button>
+
+                       </div>
+                    </td>
+                </tr>
+                    
+                @endforeach
+            
+            
+            </tbody>
+        </table>
+    </div>
+
+    </div>
+
+
+
+
+
+    <x-alert/>
+    
+
 </div>

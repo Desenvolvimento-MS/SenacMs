@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Client extends Model
 {
@@ -18,7 +19,7 @@ class Client extends Model
     public $timestamps = false;
 
 
-    public function ticket() : BelongsTo{
-        return $this->belongsTo(Ticket::class);
+     public function ticket() : HasMany{
+        return $this->hasMany(Ticket::class);
     }
 }

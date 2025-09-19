@@ -38,6 +38,7 @@ class SectorSaller extends Component
     public $showModalCLient = false;
     public $modalGerarTicket = false;
     public $modalTicketsGerados = false;
+    public $modalShowTicket = false;
 
     use OpenAndClose;
 
@@ -123,7 +124,8 @@ class SectorSaller extends Component
     public function gerarTicket($ticket){
 
         
-        GerarTicket::dispatch($ticket);
+        // GerarTicket::dispatch($ticket);
+        
         $this->ArrayTicket->push($ticket);
 
     }
@@ -195,7 +197,6 @@ class SectorSaller extends Component
 
         foreach ($this->ArrayTicket as $key => $value) {
             
-
             $ticketname = "tickets/Ingresso{$value->id}.png";
             if(file_exists(storage_path("app/public/{$ticketname}"))){
                 $this->ArrayTicket->pull($key);
@@ -207,6 +208,16 @@ class SectorSaller extends Component
                $this->modalTicketsGerados = true;
                $this->ticketsGerados = Ticket::orderBy('id', 'DESC')->limit($this->ticketQuantity)->get();
         }
+    }
+
+
+    public function fnTotal(){
+        
+
+        $this->modalGerarTicket = false;
+        session()->flash('Sucess', 'Reserva realizada com sucesso');
+        $this->redirectRoute('event.saller', $this->eventItem->id);
+
     }
 
 

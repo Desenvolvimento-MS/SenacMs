@@ -93,7 +93,7 @@ Tecnologias utilizadas
 
 Entregas
 
-* Commit na main-teste e merge na main;
+* Commit na main-teste e merge na main
 
 
 

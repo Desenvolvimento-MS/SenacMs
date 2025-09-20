@@ -7,7 +7,7 @@
     <div class="flex w-100  bg-white md:w-200 p-5 rounded-2xl flex-col gap-5">
 
         <div class="flex w-full justify-between">
-            <span class="flex text-2xl text-gray-600">{{$NameModal}}</span>
+            <span class="flex  text-lg md:text-2xl text-gray-600">{{$NameModal}}</span>
             
             @if ($RegisterCliente)
               <button wire:click="FuncshowModalCLient" class="flex p-2 rounded-2xl justify-center items-center text-lg font-medium BtnHover bg-[#1331a1]/20  text-[#1331a1]">Cadastrar Cliente</button>

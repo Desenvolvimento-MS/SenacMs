@@ -32,6 +32,8 @@ class Ticket extends Component
 
         $model = ModelsTicket::find($id);
 
+
+
         $sector = Sector::find($model->sector_id);
         
         $sector->update([
@@ -53,20 +55,19 @@ class Ticket extends Component
 
         $this->eventItem = Event::find($this->idEvent);
 
- 
         $setores = $this->eventItem->sector()->pluck('id');
 
         $this->tickets = ModelsTicket::with(['client','sector'])->whereIn('sector_id', $setores)->get();
 
-         $setores = $this->eventItem->sector()->pluck('id');
-            $this->totalEvent = $this->eventItem->capacity_ticket;
+        $this->totalEvent = $this->eventItem->capacity_ticket;
             
 
         $query = ModelsTicket::with(['client','sector'])->whereIn('sector_id', $setores);
 
-        $this->totalValidado = $query->where('status_ticket', 'Validado')->count() ;
+        $this->totalValidado = $query->where('status_ticket', 'Validado')->count();
 
-        $this->totalNãoValidado = $query->where('status_ticket', 'Emitido')->count() ;
+
+        $this->totalValidado = $query->where('status_ticket', 'Emitido')->count();
 
 
     }
@@ -78,7 +79,7 @@ class Ticket extends Component
 
 
 
-     public $openVisuModal = false;
+    public $openVisuModal = false;
     public $visuTicket;
 
     public function verTiciket($id){
@@ -102,8 +103,9 @@ class Ticket extends Component
         if($this->eventItem){
 
             $setores = $this->eventItem->sector()->pluck('id');
-
+            
             $query = ModelsTicket::with(['client','sector'])->whereIn('sector_id', $setores);
+            
             if($this->search){
 
                 $query->whereHas('client', function($q){

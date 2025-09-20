@@ -10,7 +10,7 @@
             <span class="text-xl text-gray-600 font-medium">Ingressos {{$eventItem ? '-' . $eventItem->name : ''}} </span> 
         </div>
         <div class="flex w-1/2 items-end flex-col gap-2">
-                <label for="" class="flex w-1/4  text-lg text-gray-600 ">Perfil</label>
+                <label for="" class="flex w-1/4  text-lg text-gray-600 ">Filtrar por evento</label>
                 <select wire:change="selectEvent" wire:model='idEvent' name="" id="" class="flex w-1/4 border-1 border-gray-300 rounded-2xl p-3 ">
                     <option >Selecione uma opção</option>
                     @foreach ($events as $item)

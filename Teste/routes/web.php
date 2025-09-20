@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Check;
+use App\Livewire\Dashboard;
 use App\Livewire\Event;
 use App\Livewire\EventSaller;
 use App\Livewire\Login;
@@ -16,16 +17,10 @@ Route::get('/login', Login::class)->name('login');
 
 
 
-
-Route::get('/ticket', function(){
-    return view('TicketPaste.ticket');
-});
-
-
-
 Route::middleware(['auth', 'role:Adm'])->group(function () {
     Route::get('/eventos', Event::class)->name('events');
     Route::get('/usuarios', User::class)->name('users');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
     Route::get('/eventos/setor/{id}', Sector::class)->name('event.saller');
 
@@ -36,7 +31,7 @@ Route::middleware(['auth', 'role:Adm,Saller'])->group(function () {
 
     Route::get('/reserva/{id}', SectorSaller::class)->name('saller.sector');
 
-    Route::get('/ingressos', Ticket::class)->name('ticket');
+    Route::get('/ingressos', Ticket::class)->name('tickets');
 
     Route::get('/donwload/{id}', function($id){
         $fullpaht = storage_path("app/public/tickets/Ingresso{$id}.png");

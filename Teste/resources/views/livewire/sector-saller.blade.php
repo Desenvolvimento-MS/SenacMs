@@ -299,6 +299,14 @@
 
     >
 
+    <x-progress
+
+    :Status1=$status1
+    :Status2=$status2
+    :Status3=$status3
+    
+    />
+
     <div class="flex w-full justify-center  flex-col gap-5 items-center">
 
 
@@ -426,7 +434,7 @@
 
 
 @if($openVisuModal)
-<div class=" flex inset-0 z-[999] fixed bg-black/20 justify-center items-center">
+<div class=" flex inset-0 z-[9999] fixed bg-black/20 justify-center items-center">
     <div class="flex p-2 rounded-2xl bg-white flex-col gap-2">
         <div class="flex w-full items-end justify-end ">
                <button wire:click="closeVisuModal" class="flex rounded-full p-2 BtnHover w-10 h-10 justify-center items-center  bg-gray-100 text-gray-600"><i class="fa-solid fa-xmark"></i></button>
@@ -446,9 +454,19 @@
 
 <div class="flex z-[999] inset-0 fixed bg-black/20 justify-center items-center">
 
-    <div class="flex md:w-200 w-100 bg-white shadow-xl p-5 rounded-2xl flex-col gap-3">
+    <div class="flex md:w-200 w-100 bg-white shadow-xl p-5 rounded-2xl flex-col gap-5">
+
+    <span class="flex text-lg md:text-2xl text-gray-600">Reservar Ingressos - {{ $sectorItem ? $sectorItem->name : ''}}</span>
+
+    <x-progress
+
+    :Status1=$status1
+    :Status2=$status2
+    :Status3=$status3
+    
+    />
         
-    <div class="flex flex-col w-full gap-2">
+    <div class="flex flex-col mt-5 w-full gap-2">
         @if($ticketsGerados)
         @foreach ($ticketsGerados as $item)
         <div class="flex w-full justify-between">

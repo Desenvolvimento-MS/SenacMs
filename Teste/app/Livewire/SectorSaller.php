@@ -24,6 +24,11 @@ class SectorSaller extends Component
     public $ArrayTicket;
     public $ticketsGerados;
 
+
+    public $status1 = false;
+    public $status2 = false;
+    public $status3 = false;
+
     public $RegisterClienteLive = true;
 
     
@@ -113,6 +118,8 @@ class SectorSaller extends Component
 
         $this->clientCall();
 
+        $this->status1 = true;
+
         $this->ticketStatsu = true;
 
         $this->sectorItem = Sector::find($id);
@@ -126,6 +133,8 @@ class SectorSaller extends Component
             'ticketQuantity' => 'required|gt:0|numeric'
         ]);
        $this->ticketStatsu = false;
+
+        $this->status2 = true;
        $this->showCliente = true;
     }
 
@@ -138,6 +147,8 @@ class SectorSaller extends Component
     
 
     public function BtnFN(){
+
+        $this->status3 = true;
 
         $this->RegisterClienteLive= false;
 

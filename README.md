@@ -55,14 +55,6 @@ Entregas
 Link do Figma = https://www.figma.com/proto/JQF2pfv9iQ6WtOe4WRTyyD/Competi%C3%A7%C3%B5es-MS?node-id=6-856&p=f&t=IjYUK4CLhVCIhgKc-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=6%3A856
 
 
-Comandos para rodas ao iniciar o projeto
-
-nomposer I
-npm I
-php artisan serve
-php artisan storage:link
-php artisan queue:work
-
 
 
 Modulo 3° CRUD Usuários
@@ -101,26 +93,9 @@ Entregas
 Módulo 5° Login, Validador e Dashboard
 
 
-
-Dados para logar
-
-
-logar Adm  - cpf: 454.543.543-53 / email:  adm1@email.com / senha: adm123@
+Neste módulo devo entregar toda a lógica de login baseado nos 3 perfis , donwload dos ingressos, como também o validador dos ingressos e por último o dashboard trazendo o dinamismo das informações rápidas e em tempo real com gráficos e tabelas. Para esses gráficos ultilizei da biblioteca ApexChartJs, para trazer um design moderno.
 
 
-
-
-logar Vendedor  - cpf: 575.675.455-35 /  vendedor@email.com / senha: vend123@
-
-
-
-
-logar Validador  - cpf: 654.654.354-67 / validador@email.com / senha: val123@
-
-
-
-Neste módulo devo entregar toda a lógica de login baseado nos 3 perfis , donwload dos ingressos, como também o validador dos ingressos e por último o dashboard trazendo o dinamismo das informações rápidas e em tempo real com gráficos e tabelas.
- utilizadas durante a construção do projeto.
 
 
 Tecnologias utilizadas
@@ -133,7 +108,9 @@ Tecnologias utilizadas
 
 Entregas
 
-* Commit na main-teste e merge na main;
+* Commit na main-teste e merge na main;.
+
+
 
 Módulo 6° Apresentação do sistema
 
@@ -142,4 +119,51 @@ Neste módulo devo fazer o pitch do meu sistema, demonstrando um fluxo de venda 
 Entregas
 
 * Pitch de 10 minutos;
+
+
+
+
+
+
+
+Comandos para rodar ao iniciar o projeto
+
+
+
+composer I
+
+
+
+npm I
+
+
+
+php artisan serve
+
+
+
+php artisan storage:link
+
+
+
+php artisan queue:work ======  (Ctrl Z para fechar e rode denovo o comando pois pode ocorrer erros nas primeiras tentativas de rodar os jobs)
+
+
+
+
+
+
+Dados para logar
+
+logar Adm  - cpf: 454.543.543-53 / email:  adm1@email.com / senha: adm123@
+
+
+
+
+logar Vendedor  - cpf: 575.675.455-35 /  vendedor@email.com / senha: vend123@
+
+
+
+
+logar Validador  - cpf: 654.654.354-67 / validador@email.com / senha: val123@
 

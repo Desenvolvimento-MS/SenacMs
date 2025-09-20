@@ -21,22 +21,22 @@
     switch ($sector->type_sector) {
         case 'VIP':
             
-            $icon = '<i class="fa-solid fa-star"></i>';
+            $icon = "fa-star";
             break;
-            $text2= 'VIP';
-            $color = 'bg-[#f44528]';
+            $text2= "VIP";
+            $color = "bg-[#f44528]";
             $text = 'text-[#f44528]';
             $border = 'border-[#f44528]';
             break;
         case 'IMP':
-            $icon = '<i class="fa-solid fa-camera"></i>';
-            $color = 'bg-[#1331a1]';
+            $icon = "fa-camera";
+            $color = "bg-[#1331a1]";
             $text = 'text-[#1331a1]';
               $border = 'border-[#1331a1]';
                 $text2= 'IMPRENSA';
             break;
         case 'COM':
-             $icon = '<i class="fa-solid fa-user-group"></i>';
+             $icon = "fa-user-group";
             $color = 'bg-[#a2ca02]';
             $text = 'text-[#a2ca02]';
             $border = 'border-[#a2ca02]';
@@ -52,9 +52,10 @@
 <body class="flex overflow-hidden {{ $color }} ">
 
 
-    <div class="flex w-full {{$color}} z-[99] p-5 flex-col gap-5 ">
+    <div class="flex w-full {{ $color }} z-[99] p-5 flex-col gap-5 ">
 
         <div class="flex text-2xl text-white  z-[99] gap-3 w-full justify-center items-center">
+            <i class="fa-solid {{ $icon }} "></i>
             {{$text2}}
         </div>
         <div class="flex bg-white  h-100 z-[99] rounded-2xl flex-col  gap-10 p-5">
@@ -67,9 +68,15 @@
 
             <div class="flex w-full relative">
 
-                <div class="flex w-15 absolute  z-[99] -top-7 -left-15  h-15  {{$color}} rounded-full"></div>
+                <div class="flex w-15 absolute  z-[99] -top-7 -left-15  h-15  {{ $color }} rounded-full"></div>
+
+
                 <div class="flex w-full border-1 border-dashed {{$border}} "></div>
-                 <div class="flex w-15 absolute -top-7 -right-15  h-15  {{$color}}rounded-full"></div>
+
+                
+                <div class="flex w-15 absolute -top-7 -right-15  h-15  {{ $color }} rounded-full"></div>
+
+
             </div>
 
             <div class="flex w-full flex-col  z-[99] gap-3 justify-center items-center">
@@ -79,9 +86,13 @@
 
              <div class="flex w-full  z-[99] relative">
 
-                <div class="flex w-15 absolute -top-7 -left-15  h-15  {{$color}} rounded-full"></div>
+                <div class="flex w-15 absolute -top-7 -left-15  h-15  {{ $color }} rounded-full"></div>
+
+
                 <div class="flex w-full border-1 border-dashed  {{$border}}"></div>
-                 <div class="flex w-15 absolute -top-7 -right-15  h-15  {{$color}} rounded-full"></div>
+
+
+                 <div class="flex w-15 absolute -top-7 -right-15  h-15  {{ $color }} rounded-full"></div>
             </div>
 
             <div class="flex  w-full justify-between items-center">
@@ -105,7 +116,7 @@
         <i class="fa-solid text-[150px]  z-[99] text-white pr-15 fa-qrcode"></i>
 
 
-        <img class="flex fixed bottom-5  z-[99] right-0 h-70" src="{{asset('image/Logo - Isotipo Branco.png')}}" alt="">
+        <img class="flex fixed bottom-0  z-[99] right-0 h-70" src="{{asset('image/Logo - Isotipo Branco.png')}}" alt="">
 
         <img class="flex fixed bottom-60 z-[10] right-0 h-70" src="{{asset('image/Vector 15.png')}}" alt="">
         <img class="flex fixed bottom-0 z-[10] -left-20 h-70" src="{{asset('image/Vector 14.png')}}" alt="">

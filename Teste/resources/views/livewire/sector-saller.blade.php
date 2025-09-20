@@ -294,6 +294,7 @@
 
     NameModal="Reservar Ingressos - {{ $sectorItem ? $sectorItem->name : ''}}"
     :StatusMOdal=$showModal
+    :RegisterCliente=$RegisterClienteLive
    
 
     >
@@ -369,7 +370,7 @@
 <x-modal
     :StatusMOdal=$showModalCLient
     NameModal='Cadastrar Cliente'
-    :RegisterCLiete=$RegisterCLietShow
+    :RegisterCLiete=!$RegisterCLiete1 ? true : false
 > 
 
  <div class="flex w-full gap-5 md:flex-row flex-col  justify-between">
@@ -423,36 +424,78 @@
 
 
 
-   <x-modal
 
-    NameModal="Reservar Ingressos - {{ $sectorItem ? $sectorItem->name : ''}}"
-    :StatusMOdal=$modalShowTicket
-    >
+@if($openVisuModal)
+<div class=" flex inset-0 z-[999] fixed bg-black/20 justify-center items-center">
+    <div class="flex p-2 rounded-2xl bg-white flex-col gap-2">
+        <div class="flex w-full items-end justify-end ">
+               <button wire:click="closeVisuModal" class="flex rounded-full p-2 BtnHover w-10 h-10 justify-center items-center  bg-gray-100 text-gray-600"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <img src="{{$visuTicket}}" alt="">
+    </div>
+
+ 
+
+</div>
+
+@endif
 
 
 
-    <div class="flex w-full justify-between">
+@if($modalShowTicket)
 
-        <div class="flex gap-2 items-center text-lg">
-            <div class="flex w-10 h-10 rounded-full justify-center items-center text-white bg-[#f44528]">
-                <i class="fa-solid fa-ticket"></i>
+<div class="flex z-[999] inset-0 fixed bg-black/20 justify-center items-center">
+
+    <div class="flex md:w-200 w-100 bg-white shadow-xl p-5 rounded-2xl flex-col gap-3">
+        
+    <div class="flex flex-col w-full gap-2">
+        @if($ticketsGerados)
+        @foreach ($ticketsGerados as $item)
+        <div class="flex w-full justify-between">
+        
+            
+            <div class="flex gap-2 items-center text-lg">
+                <div class="flex w-10 h-10 rounded-full justify-center items-center text-white bg-[#f44528]">
+                    <i class="fa-solid fa-ticket"></i>
+                </div>
+                <span class="flex text-lg font-medium text-gray-600"> {{$item->id}}° Ingresso</span>
             </div>
-            <span class="flex text-lg font-medium text-gray-600"> 1° Ingresso</span>
+            <div class="flex gap-3 items-center">
+                <button wire:click='verTiciket({{$item->id}})' class="flex p-2 BtnHover text-lg rounded-2xl bg-amber-100 text-amber-700 items-center  " href=""><i class="fa-solid fa-eye"></i>Ver ingresso</button>
+                <a href="{{route('donwload', $item->id)}}" class="flex p-2 BtnHover text-lg rounded-2xl bg-[#1331a1] text-white items-center  " href=""><i class="fa-solid fa-download"></i>Donwload</a>
+            </div>
+
+        
+
         </div>
-        <div class="flex gap-3 items-center">
-            <button class="flex p-2 text-lg rounded-2xl bg-amber-100 text-amber-700 items-center  " href=""><i class="fa-solid fa-eye"></i>Ver ingresso</button>
-            <a class="flex p-2 text-lg rounded-2xl bg-[#1331a1] text-white items-center  " href=""><i class="fa-solid fa-download"></i>Donwload</a>
+
+        <div class="flex w-full border-1 border-dashed border-gray-400">
+
         </div>
+        @endforeach
+        <div class="flex justify-center mt-3 items-center w-full">
+
+                <button wire:click='fnTotal' class="flex p-2 rounded-2xl w-1/2 bg-green-100 text-green-700 text-xl BtnHover font-medium justify-center items-center">Finalizar Reserva</button>
+
+            </div>
+
+        @endif
+
+        </div>
+
 
 
 
     </div>
 
-   </x-modal>
+</div>
+
+
+@endif
 
 @if ($modalGerarTicket)
 
-<div wire:poll.5s='fnTotal' class=" flex inset-0 z-[99] fixed bg-black/20 justify-center items-center">
+<div wire:poll='verificarTicketGerado' class=" flex inset-0 z-[99] fixed bg-black/20 justify-center items-center">
 
 
      <div class="flex w-100 md:w-140  bg-white p-10 rounded-2xl flex-col gap-5">

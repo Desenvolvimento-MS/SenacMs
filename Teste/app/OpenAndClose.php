@@ -11,6 +11,13 @@ trait OpenAndClose
     public $updateFom = false;
     public $search;
 
+      public $showModalCLient = false;
+      public $ticketStatsu = false;
+        public $showCliente = false;
+
+ 
+    
+
 
     public function closeModal(){
 
@@ -19,10 +26,10 @@ trait OpenAndClose
         $this->reset([
             'showModal',
             'updateFom',
-            'ticketStatsu',
             'search',
+            'showModalCLient',
+            'ticketStatsu',
             'showCliente',
-            'RegisterCLietShow',
         ]);
     }
 

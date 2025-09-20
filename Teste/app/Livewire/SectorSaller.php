@@ -9,6 +9,7 @@ use App\Models\Sale;
 use App\Models\Sector;
 use App\Models\Ticket;
 use App\OpenAndClose;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 
@@ -23,6 +24,10 @@ class SectorSaller extends Component
     public $ArrayTicket;
     public $ticketsGerados;
 
+    public $RegisterClienteLive = true;
+
+    
+
     public $name;
     public $lastname;
     public $email;
@@ -32,10 +37,11 @@ class SectorSaller extends Component
 
     public $ticketQuantity;
 
-    public $ticketStatsu = false;
-    public $RegisterCLietShow = true;
-    public $showCliente = false;
-    public $showModalCLient = false;
+  
+    public $RegisterCLiete1 = true;
+
+  
+  
     public $modalGerarTicket = false;
     public $modalTicketsGerados = false;
     public $modalShowTicket = false;
@@ -98,6 +104,8 @@ class SectorSaller extends Component
 
         $this->eventItem = Event::find($id);
         $this->sectors = Sector::where('event_id', $id)->get();
+
+        $this->RegisterClienteLive = true;
       
     }
 
@@ -122,17 +130,16 @@ class SectorSaller extends Component
     }
 
     public function gerarTicket($ticket){
-
-        
-        // GerarTicket::dispatch($ticket);
-        
+        GerarTicket::dispatch($ticket);
+    
         $this->ArrayTicket->push($ticket);
-
     }
 
     
 
     public function BtnFN(){
+
+        $this->RegisterClienteLive= false;
 
         if(empty($this->selectClient)){
             session()->flash('ErrorForm', 'Selecione o cliente');
@@ -205,10 +212,30 @@ class SectorSaller extends Component
 
         if($this->ArrayTicket->isEmpty()){
                $this->modalGerarTicket = false;
-               $this->modalTicketsGerados = true;
+               $this->modalShowTicket = true;
+
+             
                $this->ticketsGerados = Ticket::orderBy('id', 'DESC')->limit($this->ticketQuantity)->get();
         }
     }
+
+    public $openVisuModal = false;
+    public $visuTicket;
+
+    public function verTiciket($id){
+
+        $path = "tickets/Ingresso{$id}.png";
+        $this->visuTicket = Storage::url($path);
+
+        $this->openVisuModal = true;
+    }
+
+    public function closeVisuModal(){
+        $this->openVisuModal = false;
+    }
+
+
+
 
 
     public function fnTotal(){
@@ -216,7 +243,7 @@ class SectorSaller extends Component
 
         $this->modalGerarTicket = false;
         session()->flash('Sucess', 'Reserva realizada com sucesso');
-        $this->redirectRoute('event.saller', $this->eventItem->id);
+        $this->redirectRoute('saller.sector', $this->eventItem->id);
 
     }
 

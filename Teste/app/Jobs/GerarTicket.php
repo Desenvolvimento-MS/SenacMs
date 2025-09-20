@@ -22,8 +22,17 @@ class GerarTicket implements ShouldQueue
     public function __construct($ticket)
     {
         
+        $this->ticket = $ticket;
+    }
 
-        $ticket = $ticket;
+
+    /**
+     * Execute the job.
+     */
+    public function handle(): void
+    {
+     
+        $ticket = $this->ticket;
         $sector = Sector::find($ticket->sector_id);
         $event = Event::find($sector->event_id);
         $client = Client::find($ticket->client_id);
@@ -41,7 +50,7 @@ class GerarTicket implements ShouldQueue
             mkdir(storage_path('app/public/tickets'), 0755, true);
         }
 
-        $ticketName = "tickets/Ingresso{$ticket->id}.pdf";
+        $ticketName = "tickets/Ingresso{$ticket->id}.png";
 
         $path = storage_path("app/public/{$ticketName}");
 
@@ -49,13 +58,5 @@ class GerarTicket implements ShouldQueue
             ->timeout(60)
             ->windowSize(440,700)
             ->save($path);
-    }
-
-    /**
-     * Execute the job.
-     */
-    public function handle(): void
-    {
-        //
     }
 }

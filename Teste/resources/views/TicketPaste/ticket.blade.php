@@ -23,6 +23,7 @@
             
             $icon = '<i class="fa-solid fa-star"></i>';
             break;
+            $text2= 'VIP';
             $color = 'bg-[#f44528]';
             $text = 'text-[#f44528]';
             $border = 'border-[#f44528]';
@@ -32,12 +33,14 @@
             $color = 'bg-[#1331a1]';
             $text = 'text-[#1331a1]';
               $border = 'border-[#1331a1]';
+                $text2= 'IMPRENSA';
             break;
         case 'COM':
              $icon = '<i class="fa-solid fa-user-group"></i>';
             $color = 'bg-[#a2ca02]';
             $text = 'text-[#a2ca02]';
             $border = 'border-[#a2ca02]';
+               $text2= 'COMUM';
             break;
     
     }
@@ -46,14 +49,13 @@
 @endphp
 
 
-<body class="flex overflow-hidden {{$color}} ">
+<body class="flex overflow-hidden {{ $color }} ">
 
 
     <div class="flex w-full {{$color}} z-[99] p-5 flex-col gap-5 ">
 
         <div class="flex text-2xl text-white  z-[99] gap-3 w-full justify-center items-center">
-             { !! $icon !!}
-            {{$sector->type_sector}}
+            {{$text2}}
         </div>
         <div class="flex bg-white  h-100 z-[99] rounded-2xl flex-col  gap-10 p-5">
 

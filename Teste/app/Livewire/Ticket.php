@@ -6,6 +6,7 @@ use App\Models\Event;
 use App\Models\Sector;
 use App\Models\Ticket as ModelsTicket;
 use App\OpenAndClose;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class Ticket extends Component
@@ -23,6 +24,7 @@ class Ticket extends Component
     public $idEvent;
     public $events;
     public $selectTicket;
+    public $typeSelectTicket;
     public $tickets = [];
 
 
@@ -75,8 +77,52 @@ class Ticket extends Component
     }
 
 
+
+     public $openVisuModal = false;
+    public $visuTicket;
+
+    public function verTiciket($id){
+
+        $path = "tickets/Ingresso{$id}.png";
+        $this->visuTicket = Storage::url($path);
+
+        $this->openVisuModal = true;
+    }
+
+    public function closeVisuModal(){
+        $this->openVisuModal = false;
+    }
+
+
+
     public function render()
     {
+
+
+        if($this->eventItem){
+
+            $setores = $this->eventItem->sector()->pluck('id');
+
+            $query = ModelsTicket::with(['client','sector'])->whereIn('sector_id', $setores);
+            if($this->search){
+
+                $query->whereHas('client', function($q){
+                      $q->where('name', 'like', "%{$this->search}%")->orWhere('lastname', 'like', "%{$this->search}%");
+                });
+
+            }
+
+            if($this->typeSelectTicket){
+
+                if($this->typeSelectTicket != 'todos'){
+
+                    $query->where('status_ticket', $this->typeSelectTicket);
+                }
+            }
+            $this->tickets = $query->get();
+
+
+        }
 
 
         return view('livewire.ticket')

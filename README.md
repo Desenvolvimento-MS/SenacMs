@@ -82,7 +82,7 @@ Entregas
 
 Modulo 4° CRUD de Eventos e Setores e Venda de Ingressos
 
-Neste módulo realizei o CRUD de Eventos  CREATE,DELETE,UPDATE E REDME, e o CURD o de Setores CREATE,DELETE,UPDATE E REDME, como também a filtragem de eventos baseados no protótipo do  figma. Também realizou a reserva dos ingressos;
+Neste módulo realizei o CRUD de Eventos  CREATE,DELETE,UPDATE E REDME, e o CURD o de Setores CREATE,DELETE,UPDATE E REDME, como também a filtragem de eventos baseados no protótipo do  figma. Também realizou a reserva dos ingressos baseados no prótotipo do figma ;
 
 
 Tecnologias utilizadas
@@ -90,13 +90,37 @@ Tecnologias utilizadas
 ⦁	LARAVEL
 ⦁	LIVEWIRE
 ⦁	TAILWIND
-⦁	Browsershot
+⦁	BROWSERSHORT
 
 Entregas
 
 * Commit na main-teste e merge na main
 
 
+Módulo 5° Login, Validador e Dashboard
 
 
+Neste módulo devo entregar toda a lógica de login baseado nos 3 perfis , donwload dos ingressos, como também o validador dos ingressos e por último o dashboard trazendo o dinamismo das informações rápidas e em tempo real com gráficos e tabelas.
+ utilizadas durante a construção do projeto.
+
+
+Tecnologias utilizadas
+
+⦁	LARAVEL
+⦁	LIVEWIRE
+⦁	TAILWIND
+⦁	BROWSERSHORT
+⦁	APEXCHART
+
+Entregas
+
+* Commit na main-teste e merge na main
+
+Módulo 6° Apresentação do sistema
+
+Neste módulo devo fazer o pitch do meu sistema, demonstrando um fluxo de venda e validação do ingresso, assim como demonstrar quais foram minhas dificuldades, facilidades, e as tecnologias que foram utilizada e porque foram utilizadas durante a construção do projeto.
+
+Entregas
+
+* Pitch de 10 minutos
 

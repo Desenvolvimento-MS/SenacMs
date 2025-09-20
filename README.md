@@ -61,6 +61,7 @@ nomposer I
 npm I
 php artisan serve
 php artisan storage:link
+php artisan queue:work
 
 
 
@@ -98,6 +99,24 @@ Entregas
 
 
 Módulo 5° Login, Validador e Dashboard
+
+
+
+Dados para logar
+
+
+logar Adm  - cpf: 454.543.543-53 / email:  adm1@email.com / senha: adm123@
+
+
+
+
+logar Vendedor  - cpf: 575.675.455-35 /  vendedor@email.com / senha: vend123@
+
+
+
+
+logar Validador  - cpf: 654.654.354-67 / validador@email.com / senha: val123@
+
 
 
 Neste módulo devo entregar toda a lógica de login baseado nos 3 perfis , donwload dos ingressos, como também o validador dos ingressos e por último o dashboard trazendo o dinamismo das informações rápidas e em tempo real com gráficos e tabelas.

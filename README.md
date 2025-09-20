@@ -50,7 +50,7 @@ Tecnologias utilizadas
 
 Entregas 
 
-⦁	Link do fluxo do figma
+⦁	Link do fluxo do figma;
 
 Link do Figma = https://www.figma.com/proto/JQF2pfv9iQ6WtOe4WRTyyD/Competi%C3%A7%C3%B5es-MS?node-id=6-856&p=f&t=IjYUK4CLhVCIhgKc-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=6%3A856
 
@@ -94,7 +94,7 @@ Tecnologias utilizadas
 
 Entregas
 
-* Commit na main-teste e merge na main
+* Commit na main-teste e merge na main;
 
 
 Módulo 5° Login, Validador e Dashboard
@@ -114,7 +114,7 @@ Tecnologias utilizadas
 
 Entregas
 
-* Commit na main-teste e merge na main
+* Commit na main-teste e merge na main;
 
 Módulo 6° Apresentação do sistema
 
@@ -122,5 +122,5 @@ Neste módulo devo fazer o pitch do meu sistema, demonstrando um fluxo de venda 
 
 Entregas
 
-* Pitch de 10 minutos
+* Pitch de 10 minutos;
 
